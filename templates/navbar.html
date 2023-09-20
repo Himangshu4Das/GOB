@@ -1,0 +1,87 @@
+<div class="navbar">
+    <div class="navbar-title-container">
+        <div class="navbar-title" id="navbar-title">
+            <a href="{% url 'home' %}">
+                <span id="letter1">_</span>
+                <span class="navbar-dot">.</span>
+                <span id="letter2">_</span>
+                <span class="navbar-dot">.</span>
+                <span id="letter3">_</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="navbar-links">
+        {% if user.is_authenticated %}
+        <div class="navbar-log">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+        {% endif %}
+
+        {% if not user.is_authenticated %}
+        {% if not request.resolver_match.url_name == 'login' %}
+        <div class="navbar-log">
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+        {% endif %}
+        {% endif %}
+    </div>
+</div>
+
+<div class="navbar-subtitle">
+    <span id="subtitle-text"></span>
+</div>
+
+<script>
+    const letter1 = document.getElementById('letter1');
+    const letter2 = document.getElementById('letter2');
+    const letter3 = document.getElementById('letter3');
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let currentIndex1 = 0;
+    let currentIndex2 = 0;
+    let currentIndex3 = 0;
+
+    function getRandomLetter() {
+        return letters[Math.floor(Math.random() * letters.length)];
+    }
+
+    function updateLetters() {
+        letter1.textContent = getRandomLetter();
+        letter2.textContent = getRandomLetter();
+        letter3.textContent = getRandomLetter();
+    }
+
+    const interval = setInterval(updateLetters, 200); // Change letters every 0.2 seconds
+
+    setTimeout(() => {
+        letter1.textContent = 'G';
+        clearInterval(interval); // Clear the interval after showing 'G'
+    }, 1000); // Show 'G' after 1 second
+
+    setTimeout(() => {
+        letter2.textContent = 'O';
+        clearInterval(interval); // Clear the interval after showing 'O'
+    }, 1200); // Show 'O' after 1.2 seconds
+
+    setTimeout(() => {
+        letter3.textContent = 'B';
+        clearInterval(interval); // Clear the interval after showing 'B'
+    }, 1500); // Show 'B' after 1.5 seconds
+
+
+    setTimeout(() => {
+        const subtitleText = document.getElementById('subtitle-text');
+        const subtitleContent = "Gray On Black";
+        let i = 0;
+
+        const subtitleInterval = setInterval(() => {
+            subtitleText.textContent += subtitleContent[i];
+            i++;
+
+            if (i >= subtitleContent.length) {
+                clearInterval(subtitleInterval);
+            }
+        }, 150); // Adjust the typing speed as needed
+    }, 2000); // Start subtitle animation after 2 seconds
+
+</script>

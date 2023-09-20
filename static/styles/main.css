@@ -1,0 +1,236 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', monospace;
+}
+
+.navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+
+
+.navbar-title {
+    font-size: 48px;
+    display: inline-block;
+    font-weight: 800;
+    text-align: center;
+    transition: color 0.3s ease-in-out;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-title a {
+    text-decoration: none;
+    color: white; /* Keep the original white color */
+    text-align: right;
+}
+
+.navbar-title a:hover {
+    text-decoration: none; /* Remove the underline on hover */
+}
+
+
+.navbar-dot {
+    margin: 0 1px; /* Adjust the margin as needed */
+}
+
+
+.navbar-subtitle {
+    font-size: 24px; /* Adjust font size as needed */
+    color: white;
+    text-align: center;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-links a:hover {
+    color: gray; /* Change color on hover */
+}
+
+
+.navbar-subtitle {
+    font-size: 20px; /* Adjust font size as needed */
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+    height: 30px; /* Fixed height for the subtitle */
+    overflow: hidden; /* Hide any overflowing content */
+}
+
+.navbar-log {
+    font-weight: 800;
+}
+
+.intro{
+    font-size: x-large;
+    font-weight: 1000;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Wrap items to new lines */
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px; /* Add some gap between cards */
+    margin-bottom: 40px;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    /* color: black; */
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    transition: filter 0.3s ease-in-out;
+}
+
+.card-content {
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    color: black;
+    z-index: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card:hover img {
+    filter: blur(8px);
+}
+
+.card:hover .card-content {
+    display: block;
+    opacity: 1;
+
+}
+
+.card:hover .card-content p {
+    font-weight: 1000;
+}
+
+.division-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 50px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out;
+}
+
+.division {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.division-content,
+.division-image {
+    flex: 1;
+}
+
+.division-content p {
+    margin: 0;
+}
+
+.division-image img {
+    width: 100%;
+    height: auto;
+    /* height: 200px; */
+}
+
+/* .division:hover {
+    transform: translateY(-40px);
+} */
+
+
+
+
+/* ... (other styles) ... */
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.login-form {
+    width: 300px;
+    padding: 20px;
+    /* border: 1px solid #ccc; */
+    background-color: rgba(74, 74, 74, 0.8);
+    text-align: center; /* Center-align form elements */
+}
+
+
+
+.register-link {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+
+.message-box {
+    margin-top: 10px;
+}
+
+.message {
+    padding: 5px;
+    border: 1px solid #696969;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+}
+
+.login-button {
+    /* ... (Other button styles) ... */
+    margin-top: 10px;
+    padding: 5px 10px; /* Adjust padding to increase button size */
+    font-size: 18px; /* Adjust font size to increase text size */
+}

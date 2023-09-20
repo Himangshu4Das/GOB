@@ -1,0 +1,154 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="intro">
+    <p id="typing-text">Tools to boost your work.<br>Be <span id="animated-text"></span></p>
+</div>
+
+    <div class="card-container">
+        <div class="card-wrapper">
+            <a href="{% url 'delegator' %}" class="card">
+                <img src="{% static 'images/delegator_card.png' %}" alt="DELEGATOR">
+                <div class="card-content">
+                    <p >Open Delegator. <br><br>A tool to assist you in coordinating and delegating your team!</p>
+                </div>
+            </a>
+            <a href="{% url 'evaluator' %}" class="card">
+                <img src="{% static 'images/evaluator_card.png' %}" alt="EVALUATOR">
+                <div class="card-content">
+                    <p>Open Evaluator.<br><br> A tool to monitor, quantize and visualize team performance.</p>
+                </div>
+            </a>
+
+
+            <a href="{% url 'iotclump' %}" class="card">
+                <img src="{% static 'images/iotclump_card.png' %}" alt="IoTCLUMP">
+                <div class="card-content">
+                    <p>Open IoTClump.<br><br> Integrate your private or public sensors with your IoT devices. </p>
+                </div>
+            </a>
+
+            <a href="{% url 'iotclump' %}" class="card">
+                <img src="{% static 'images/iotclump_card.png' %}" alt="IoTCLUMP">
+                <div class="card-content">
+                    <p>Open IoTClump.<br><br> Integrate your private or public sensors with your IoT devices. </p>
+                </div>
+            </a>
+
+            <a href="{% url 'iotclump' %}" class="card">
+                <img src="{% static 'images/iotclump_card.png' %}" alt="IoTCLUMP">
+                <div class="card-content">
+                    <p>Open IoTClump.<br><br> Integrate your private or public sensors with your IoT devices. </p>
+                </div>
+            </a>
+
+            <a href="{% url 'iotclump' %}" class="card">
+                <img src="{% static 'images/iotclump_card.png' %}" alt="IoTCLUMP">
+                <div class="card-content">
+                    <p>Open IoTClump.<br><br> Integrate your private or public sensors with your IoT devices. </p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="division-container">
+        <div class="division">
+            <div class="division-content">
+                <p>This is a paragraph on the left.</p>
+            </div>
+            <div class="division-image">
+                <img src="{% static 'images/image3.jpg' %}" alt="Image 3">
+            </div>
+        </div>
+
+        <div class="division">
+            <div class="division-image">
+                <img src="{% static 'images/image4.jpg' %}" alt="Image 4">
+            </div>
+            <div class="division-content">
+                <p>This is a paragraph on the right.</p>
+            </div>
+        </div>
+
+        <!-- Add two more division pairs here -->
+
+        <div class="division">
+            <div class="division-content">
+                <p>This is a paragraph on the left.</p>
+            </div>
+            <div class="division-image">
+                <img src="{% static 'images/image3.jpg' %}" alt="Image 3">
+            </div>
+        </div>
+
+        <div class="division">
+            <div class="division-image">
+                <img src="{% static 'images/image4.jpg' %}" alt="Image 4">
+            </div>
+            <div class="division-content">
+                <p>This is a paragraph on the right.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <script>
+        const divisions = document.querySelectorAll('.division');
+        const divisionContainer = document.querySelector('.division-container');
+    
+        divisions.forEach((division, index) => {
+            division.addEventListener('click', () => {
+                divisionContainer.style.transform = `translateY(-${index * 100}%)`;
+            });
+        });
+    </script> -->
+
+
+    <script>
+        const animatedText = document.getElementById('animated-text');
+        const words = ['Effective.', 'Productive.', 'Minimalistic.','Efficient'];
+        let index = 0;
+
+        function animateWords() {
+            animatedText.textContent = '';
+
+            if (index === words.length) {
+                index = 0;
+            }
+
+            const word = words[index];
+            let i = 0;
+
+            const interval = setInterval(() => {
+                animatedText.textContent += word[i];
+                i++;
+
+                if (i >= word.length) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        backspaceWords(word);
+                    }, 1000);
+                }
+            }, 100);
+        }
+
+        function backspaceWords(word) {
+            const interval = setInterval(() => {
+                word = word.slice(0, -1);
+                animatedText.textContent = word;
+
+                if (word === '') {
+                    clearInterval(interval);
+                    index++;
+                    setTimeout(() => {
+                        animateWords();
+                    }, 500);
+                }
+            }, 50);
+        }
+
+        animateWords();
+    </script>
+{% endblock %}
